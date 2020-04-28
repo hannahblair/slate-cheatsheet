@@ -1,6 +1,6 @@
 # Slate Cheatsheet
 
-**Note: Slate recently released version 0.50. This document is not applicable to that or any later version**
+**Note: Working for Slate .57 and up.**
 
 A quick reference for common actions in a [SlateJS](https://docs.slatejs.org/) Editor.
 
@@ -29,7 +29,7 @@ editor.withoutNormalizing(() => {
 
 ### Modifying
 
-#### Select All
+~~#### Select All~~
 
 ```
 editor.moveToRangeOfDocument()
@@ -39,45 +39,47 @@ editor.moveToRangeOfDocument()
 
 ```
 // Save selection before focusing on something else
-const selection = editor.value.selection
+const currentSelection = editor.selection
 
 // Restore editor selection later on
-editor.select(selection)
+
+Transforms.setSelection(editor, currentSelection);
+
 ```
 
-### Analyzing
+~~### Analyzing~~
 
-#### Basic
+~~#### Basic~~
 
 ```
 // also has start, end, anchor
 const { key, offset, path } = editor.value.selection.focus
 ```
 
-#### Selection is in a block of a given type
+~~#### Selection is in a block of a given type~~
 
 ```
 const type = "paragraph"
 const isInType = editor.value.blocks.some(block => block.type === type)
 ```
 
-#### Selection is directly after an inline of a given type
+~~#### Selection is directly after an inline of a given type~~
 
 ```
 const previous = editor.value.document.getPreviousSibling(editor.value.focusText.key)
 const isAfter = previous.type === type && editor.value.focus.offset === 0
 ```
 
-## Data
+~~## Data~~
 
-### Set Data
+~~### Set Data~~
 
 ```
 const data = { alignment: "left" }
 editor.setBlocks({data})
 ```
 
-### Merge Data
+~~### Merge Data~~
 
 ```
 const data = { alignment: "left" }
@@ -86,7 +88,7 @@ editor.setNodeByKey(node.key, { data: node.data.merge(data)})
 
 ## Querying
 
-### Find Parent
+~~### Find Parent~~
 
 ```
 // `key` == the node that you want to find the parent for
@@ -94,7 +96,7 @@ const document = editor.value.document
 document.getParent(key)
 ```
 
-### Search for `node` in a `nodes` collection
+~~### Search for `node` in a `nodes` collection~~
 
 ```
 const parent = editor.value.document.getParent(node.key)
@@ -104,7 +106,7 @@ const index = parent.nodes.indexOf(node);
 
 ## Misc
 
-### Analyze changes made to the value in `onChange`
+~~### Analyze changes made to the value in `onChange`~~
 
 ```
 onChange = (change) => {
@@ -112,19 +114,19 @@ onChange = (change) => {
 }
 ```
 
-### Check if a node is empty
+~~### Check if a node is empty~~
 
 ```
 node.text === ""
 ```
 
-### Check if the current line is empty
+~~### Check if the current line is empty~~
 
 ```
 editor.value.startBlock.text === ""
 ```
 
-### Multiple Editors on the Same Page
+~~### Multiple Editors on the Same Page~~
 
 ```
 import { Value } from "slate"

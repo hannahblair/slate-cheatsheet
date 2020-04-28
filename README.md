@@ -1,6 +1,6 @@
 # Slate Cheatsheet
 
-**Note: Working for Slate .57 and up.**
+**Note: Working for Slate 0.57 and up.**
 
 A quick reference for common actions in a [SlateJS](https://docs.slatejs.org/) Editor.
 
@@ -39,6 +39,7 @@ editor.moveToRangeOfDocument()
 
 ```
 // Save selection before focusing on something else
+
 const currentSelection = editor.selection
 
 // Restore editor selection later on

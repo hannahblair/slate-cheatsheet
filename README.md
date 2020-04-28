@@ -6,7 +6,7 @@ A quick reference for common actions in a [SlateJS](https://docs.slatejs.org/) E
 
 ## Commands
 
-### Reset Block on Enter
+~~### Reset Block on Enter~~
 
 You may want to use this when someone presses "Enter" after a block like a heading:
 
@@ -14,7 +14,7 @@ You may want to use this when someone presses "Enter" after a block like a headi
 editor.splitBlock().setBlocks("paragraph")
 ```
 
-### Chaining
+~~### Chaining~~
 
 To make a series of commands without being interrupted by normalization:
 

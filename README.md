@@ -38,6 +38,9 @@ editor.moveToRangeOfDocument()
 #### Save and Restore Selection
 
 ```
+
+import { Transforms } from "slate";
+
 // Save selection before focusing on something else
 
 const currentSelection = editor.selection
